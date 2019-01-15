@@ -1,0 +1,685 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:iii="http://www.manufacturing.com/ontology.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.manufacturing.com/ontology.owl"/>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Process">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Equipment">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Order">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Product">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Order"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Execute">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Process"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Zone_2">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Conveyor">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Equipment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Transport">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Process"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Zone_1">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Robot">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Equipment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Zone_4">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.manufacturing.com/ontology.owl#Zone_3">
+    <rdfs:subClassOf rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasNeighbour">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+    <rdfs:range rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasExecuteProcess">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Robot"/>
+    <rdfs:range rdf:resource="http://www.manufacturing.com/ontology.owl#Execute"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasLinkDest">
+    <rdfs:range rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Transport"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasEquipProcess">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Robot"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:ObjectProperty>
+  <rdf:Property rdf:about="http://www.manufacturing.com/ontology.owl#hasTransportNeeds">
+    <rdfs:range rdf:resource="http://www.manufacturing.com/ontology.owl#Transport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.manufacturing.com/ontology.owl#isAtWS">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.manufacturing.com/ontology.owl#hasReachLink">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Transport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.manufacturing.com/ontology.owl#hasTransZone35URL">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Transport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.manufacturing.com/ontology.owl#hasStatus">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Conveyor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.manufacturing.com/ontology.owl#isAtZone">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Property>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasKeyboardColour">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasScreenType">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasKeyboardType">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasPalletID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasScreenColour">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasFrameColour">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasFrameType">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasUrl">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Process"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasEquipUrl">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasCurrentNeed">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.manufacturing.com/ontology.owl#hasCustomerName">
+    <rdfs:domain rdf:resource="http://www.manufacturing.com/ontology.owl#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:DatatypeProperty>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_5"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_2">
+    <iii:hasLinkDest>
+      <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_2">
+        <iii:hasNeighbour>
+          <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_2">
+            <iii:hasNeighbour>
+              <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_3">
+                <iii:hasNeighbour>
+                  <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_3">
+                    <iii:hasNeighbour>
+                      <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_3">
+                        <iii:hasNeighbour>
+                          <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_4">
+                            <iii:hasNeighbour>
+                              <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_4">
+                                <iii:hasNeighbour>
+                                  <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_4">
+                                    <iii:hasNeighbour>
+                                      <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_5">
+                                        <iii:hasNeighbour>
+                                          <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_5">
+                                            <iii:hasNeighbour>
+                                              <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_5">
+                                                <iii:hasNeighbour>
+                                                  <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_6">
+                                                    <iii:hasNeighbour>
+                                                      <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_6">
+                                                        <iii:hasNeighbour>
+                                                          <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_6">
+                                                            <iii:hasNeighbour>
+                                                              <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_7">
+    <iii:hasNeighbour>
+      <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_7">
+        <iii:hasNeighbour>
+          <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_7">
+            <iii:hasNeighbour>
+              <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_8">
+                <iii:hasNeighbour>
+                  <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_8">
+                    <iii:hasNeighbour>
+                      <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_8">
+                        <iii:hasNeighbour>
+                          <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_9">
+                            <iii:hasNeighbour>
+                              <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_9">
+                                <iii:hasNeighbour>
+                                  <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_9">
+                                    <iii:hasNeighbour>
+                                      <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_10">
+                                        <iii:hasNeighbour>
+                                          <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_10">
+                                            <iii:hasNeighbour>
+                                              <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_10">
+                                                <iii:hasNeighbour>
+                                                  <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_11">
+                                                    <iii:hasNeighbour>
+                                                      <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_11">
+                                                        <iii:hasNeighbour>
+                                                          <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_11">
+                                                            <iii:hasNeighbour>
+                                                              <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_12">
+    <iii:hasNeighbour>
+      <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_12">
+        <iii:hasNeighbour>
+          <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_12">
+            <iii:hasNeighbour>
+              <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_1">
+                <iii:hasNeighbour>
+                  <iii:Zone_2 rdf:about="http://www.manufacturing.com/ontology.owl#zone_2_1">
+                    <iii:hasNeighbour>
+                      <iii:Zone_3 rdf:about="http://www.manufacturing.com/ontology.owl#zone_3_1">
+                        <iii:hasNeighbour>
+                          <iii:Zone_1 rdf:about="http://www.manufacturing.com/ontology.owl#zone_1_2">
+                            <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_2"/>
+                            <iii:hasNeighbour>
+                              <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_2">
+                                <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_3"/>
+                                <iii:hasStatus>free</iii:hasStatus>
+                              </iii:Zone_4>
+                            </iii:hasNeighbour>
+                            <iii:hasStatus>free</iii:hasStatus>
+                          </iii:Zone_1>
+                        </iii:hasNeighbour>
+                        <iii:hasStatus>free</iii:hasStatus>
+                      </iii:Zone_3>
+                    </iii:hasNeighbour>
+                    <iii:hasStatus>free</iii:hasStatus>
+                  </iii:Zone_2>
+                </iii:hasNeighbour>
+                <iii:hasStatus>free</iii:hasStatus>
+              </iii:Zone_1>
+            </iii:hasNeighbour>
+            <iii:hasStatus>free</iii:hasStatus>
+          </iii:Zone_3>
+        </iii:hasNeighbour>
+        <iii:hasStatus>free</iii:hasStatus>
+      </iii:Zone_2>
+    </iii:hasNeighbour>
+    <iii:hasNeighbour>
+      <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_12">
+        <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_1"/>
+        <iii:hasStatus>free</iii:hasStatus>
+      </iii:Zone_4>
+    </iii:hasNeighbour>
+    <iii:hasStatus>free</iii:hasStatus>                       </iii:Zone_1>
+                                                            </iii:hasNeighbour>
+                                                            <iii:hasStatus
+                                                            >free</iii:hasStatus>
+                                                          </iii:Zone_3>
+                                                        </iii:hasNeighbour>
+                                                        <iii:hasStatus
+                                                        >free</iii:hasStatus>
+                                                      </iii:Zone_2>
+                                                    </iii:hasNeighbour>
+                                                    <iii:hasNeighbour>
+                                                      <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_11">
+                                                        <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_12"/>
+                                                        <iii:hasStatus
+                                                        >free</iii:hasStatus>
+                                                      </iii:Zone_4>
+                                                    </iii:hasNeighbour>
+                                                    <iii:hasStatus
+                                                    >free</iii:hasStatus>
+                                                  </iii:Zone_1>
+                                                </iii:hasNeighbour>
+                                                <iii:hasStatus
+                                                >free</iii:hasStatus>
+                                              </iii:Zone_3>
+                                            </iii:hasNeighbour>
+                                            <iii:hasStatus>free</iii:hasStatus>
+                                          </iii:Zone_2>
+                                        </iii:hasNeighbour>
+                                        <iii:hasNeighbour>
+                                          <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_10">
+                                            <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_11"/>
+                                            <iii:hasStatus>free</iii:hasStatus>
+                                          </iii:Zone_4>
+                                        </iii:hasNeighbour>
+                                        <iii:hasStatus>free</iii:hasStatus>
+                                      </iii:Zone_1>
+                                    </iii:hasNeighbour>
+                                    <iii:hasStatus>free</iii:hasStatus>
+                                  </iii:Zone_3>
+                                </iii:hasNeighbour>
+                                <iii:hasStatus>free</iii:hasStatus>
+                              </iii:Zone_2>
+                            </iii:hasNeighbour>
+                            <iii:hasNeighbour>
+                              <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_9">
+                                <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_10"/>
+                                <iii:hasStatus>free</iii:hasStatus>
+                              </iii:Zone_4>
+                            </iii:hasNeighbour>
+                            <iii:hasStatus>free</iii:hasStatus>
+                          </iii:Zone_1>
+                        </iii:hasNeighbour>
+                        <iii:hasStatus>free</iii:hasStatus>
+                      </iii:Zone_3>
+                    </iii:hasNeighbour>
+                    <iii:hasStatus>free</iii:hasStatus>
+                  </iii:Zone_2>
+                </iii:hasNeighbour>
+                <iii:hasNeighbour>
+                  <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_8">
+                    <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_9"/>
+                    <iii:hasStatus>free</iii:hasStatus>
+                  </iii:Zone_4>
+                </iii:hasNeighbour>
+                <iii:hasStatus>free</iii:hasStatus>
+              </iii:Zone_1>
+            </iii:hasNeighbour>
+            <iii:hasStatus>free</iii:hasStatus>
+          </iii:Zone_3>
+        </iii:hasNeighbour>
+        <iii:hasStatus>free</iii:hasStatus>
+      </iii:Zone_2>
+    </iii:hasNeighbour>
+    <iii:hasStatus>free</iii:hasStatus>                       </iii:Zone_1>
+                                                            </iii:hasNeighbour>
+                                                            <iii:hasStatus
+                                                            >free</iii:hasStatus>
+                                                          </iii:Zone_3>
+                                                        </iii:hasNeighbour>
+                                                        <iii:hasStatus
+                                                        >free</iii:hasStatus>
+                                                      </iii:Zone_2>
+                                                    </iii:hasNeighbour>
+                                                    <iii:hasNeighbour>
+                                                      <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_6">
+                                                        <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_7"/>
+                                                        <iii:hasStatus
+                                                        >free</iii:hasStatus>
+                                                      </iii:Zone_4>
+                                                    </iii:hasNeighbour>
+                                                    <iii:hasStatus
+                                                    >free</iii:hasStatus>
+                                                  </iii:Zone_1>
+                                                </iii:hasNeighbour>
+                                                <iii:hasStatus
+                                                >free</iii:hasStatus>
+                                              </iii:Zone_3>
+                                            </iii:hasNeighbour>
+                                            <iii:hasStatus>free</iii:hasStatus>
+                                          </iii:Zone_2>
+                                        </iii:hasNeighbour>
+                                        <iii:hasNeighbour>
+                                          <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_5">
+                                            <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_6"/>
+                                            <iii:hasStatus>free</iii:hasStatus>
+                                          </iii:Zone_4>
+                                        </iii:hasNeighbour>
+                                        <iii:hasStatus>free</iii:hasStatus>
+                                      </iii:Zone_1>
+                                    </iii:hasNeighbour>
+                                    <iii:hasStatus>free</iii:hasStatus>
+                                  </iii:Zone_3>
+                                </iii:hasNeighbour>
+                                <iii:hasStatus>free</iii:hasStatus>
+                              </iii:Zone_2>
+                            </iii:hasNeighbour>
+                            <iii:hasNeighbour>
+                              <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_4">
+                                <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_5"/>
+                                <iii:hasStatus>free</iii:hasStatus>
+                              </iii:Zone_4>
+                            </iii:hasNeighbour>
+                            <iii:hasStatus>free</iii:hasStatus>
+                          </iii:Zone_1>
+                        </iii:hasNeighbour>
+                        <iii:hasStatus>free</iii:hasStatus>
+                      </iii:Zone_3>
+                    </iii:hasNeighbour>
+                    <iii:hasStatus>free</iii:hasStatus>
+                  </iii:Zone_2>
+                </iii:hasNeighbour>
+                <iii:hasNeighbour>
+                  <iii:Zone_4 rdf:about="http://www.manufacturing.com/ontology.owl#zone_4_3">
+                    <iii:hasNeighbour rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_4"/>
+                    <iii:hasStatus>free</iii:hasStatus>
+                  </iii:Zone_4>
+                </iii:hasNeighbour>
+                <iii:hasStatus>free</iii:hasStatus>
+              </iii:Zone_1>
+            </iii:hasNeighbour>
+            <iii:hasStatus>free</iii:hasStatus>
+          </iii:Zone_3>
+        </iii:hasNeighbour>
+        <iii:hasStatus>free</iii:hasStatus>
+      </iii:Zone_2>
+    </iii:hasLinkDest>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV2/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_8">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_8"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV7/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_10">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_10"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV10/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_7">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_7"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV7/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_4">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_4"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV4/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_7">
+    <iii:hasUrl>http://localhost:3000/RTU/SimROB7/services/</iii:hasUrl>
+  </iii:Execute>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_3">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_3">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB3/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_1">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_1"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV12/services/TransZone35</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV12/services/TransZone45</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_11">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_11"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV11/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_3">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_3"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV3/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_9">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_9"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV8/services/TransZone35</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV8/services/TransZone45</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_6"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_8">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_8"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV8/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_5">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_5"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV5/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_12">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_12"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV12/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_4">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_4">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB4/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_12"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_11">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_11"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV11/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_2"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV1/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_10">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_10">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB10/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_7"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_8">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_8"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV8/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_5">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_5"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV5/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_2">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_2"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV2/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_5">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_5">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB5/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_10">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_10"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV10/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_1">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_1"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV1/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_3"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV2/services/TransZone45</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV2/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_11">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_11">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB11/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_9">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_9"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV9/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_8"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_6">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_6"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV6/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_3">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_3"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV3/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_6">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_6">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB6/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_4"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV3/services/TransZone35</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV3/services/TransZone45</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_1"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_6">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_6"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV6/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_9"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_9">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_9"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV9/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_12">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_12">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB12/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_8">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_8"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV8/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_7">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#unload">
+        <iii:hasUrl>http://localhost:3000/RTU/ROB7/services/UnloadPallet</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_3">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_3"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV3/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_10">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_10"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV9/services/TransZone45</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV9/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_2"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_12">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_12"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV12/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_5">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_5"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV4/services/TransZone35</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV4/services/TransZone45</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_7">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_7"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV7/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_8">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_8">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB8/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_4">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_4"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV4/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_11">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_11"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV10/services/TransZone35</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV10/services/TransZone45</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_3"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_12">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_12"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV12/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_4">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_4"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV4/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_6">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_6"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV5/services/TransZone45</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV5/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_1">
+    <iii:hasUrl>http://localhost:3000/RTU/SimROB1/services/</iii:hasUrl>
+  </iii:Execute>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_9">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_9"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV9/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_4_6">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_4_6"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV6/services/TransZone14</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_9">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_9">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB9/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_11">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_11"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV11/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <rdf:Description rdf:about="http://www.manufacturing.com/ontology.owl#equipPen_2">
+    <iii:hasEquipUrl>sdfgsdfgsdfg</iii:hasEquipUrl>
+  </rdf:Description>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_1">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_1"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV1/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_1">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#paper">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB1/services/LoadPaper</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_12">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_12"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV11/services/TransZone45</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV11/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_11"/>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_4"/>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_2_5">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_2_5"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV5/services/TransZone12</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_7">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_1_7"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV6/services/TransZone45</iii:hasReachLink>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV6/services/TransZone35</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_2">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_2"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV2/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Robot rdf:about="http://www.manufacturing.com/ontology.owl#robot_2">
+    <iii:hasExecuteProcess>
+      <iii:Execute rdf:about="http://www.manufacturing.com/ontology.owl#execute_2">
+        <iii:hasUrl>http://localhost:3000/RTU/SimROB2/services/</iii:hasUrl>
+      </iii:Execute>
+    </iii:hasExecuteProcess>
+  </iii:Robot>
+  <iii:Transport rdf:about="http://www.manufacturing.com/ontology.owl#transport_3_10">
+    <iii:hasLinkDest rdf:resource="http://www.manufacturing.com/ontology.owl#zone_3_10"/>
+    <iii:hasReachLink>http://localhost:3000/RTU/SimCNV10/services/TransZone23</iii:hasReachLink>
+  </iii:Transport>
+  <iii:Conveyor rdf:about="http://www.manufacturing.com/ontology.owl#conveyor_10"/>
+  <rdf:Description rdf:about="http://www.manufacturing.com/ontology.owl#equipPen_1">
+    <iii:hasUrl>sdfsdfgsfdgsd</iii:hasUrl>
+  </rdf:Description>
+</rdf:RDF>
