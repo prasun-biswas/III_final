@@ -40,9 +40,24 @@ a work cell.
 
 The system was capable of carrying out required task. The task include drawing different shapes of customizable mobile phone configurations once the order is created. The process is automated where the operation and control is executed with the stored knowledge of robotic work station in Knowledge Base (KB).
 
-<image src = "img/Murata.PNG" alt = "murata sensor" width = 250> 
-<image src = "img/Murata.PNG" alt = "murata sensor" width = 250> 
-<image src = "img/Murata.PNG" alt = "murata sensor" width = 250> 
-<image src = "img/Murata.PNG" alt = "murata sensor" width = 250> 
-<image src = "img/Murata.PNG" alt = "murata sensor" width = 250> 
+<image src = "img/III5.png" alt = "UI" width = 700> 
+  
+<table>
+  <tr>
+     <td> System architecture</td>
+     <td> transport class graph</td>
+     <td> knowledge base (KB)</td>
+     
+  </tr>
+  <tr>
+    <td><image src = "img/III1.PNG" alt = "system" width = 430> </td>
+    <td><image src = "img/III2.PNG" alt = "system" width = 430></td>
+    <td><image src = "img/III3.PNG" alt = "KB" width = 430></td>
+  </tr>
+ </table>
+
+ 
+
+  
+<image src = "img/III4.PNG" alt = "FASTory simulator" width = 700> 
 
